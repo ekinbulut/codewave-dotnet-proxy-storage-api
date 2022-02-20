@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proxy.storage.api", "proxy.storage.api\proxy.storage.api.csproj", "{D32E59DE-F597-4296-9209-AEE5F9D33C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proxy.storage.local.service", "proxy.storage.local.service\proxy.storage.local.service.csproj", "{7696240A-C808-433E-B0F4-F5532CA5D3D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proxy.storage.api.service", "proxy.storage.api.service\proxy.storage.api.service.csproj", "{C01BE219-A406-41EB-A30D-6007E0B16766}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D32E59DE-F597-4296-9209-AEE5F9D33C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D32E59DE-F597-4296-9209-AEE5F9D33C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D32E59DE-F597-4296-9209-AEE5F9D33C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D32E59DE-F597-4296-9209-AEE5F9D33C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7696240A-C808-433E-B0F4-F5532CA5D3D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7696240A-C808-433E-B0F4-F5532CA5D3D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7696240A-C808-433E-B0F4-F5532CA5D3D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7696240A-C808-433E-B0F4-F5532CA5D3D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C01BE219-A406-41EB-A30D-6007E0B16766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C01BE219-A406-41EB-A30D-6007E0B16766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C01BE219-A406-41EB-A30D-6007E0B16766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C01BE219-A406-41EB-A30D-6007E0B16766}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
