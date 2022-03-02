@@ -25,13 +25,14 @@ namespace proxy.storage.api.Controllers
         [ProducesResponseType(typeof(ApiHttpResponse), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Upload([FromHeader] string documentType, [FromForm] IFormFile file)
         {
-            ApiHttpResponse apiHttpResponse;
+            var httpResponse = new ApiHttpResponse();
             await using (var memoryStream = new MemoryStream())
             {
                await file.CopyToAsync(memoryStream);
-               apiHttpResponse = await _fileStorageProxy.UploadFile(file.FileName, memoryStream);
+               var proxyResponse = await _fileStorageProxy.UploadFile(file.FileName, memoryStream);
+               httpResponse.Message = proxyResponse;
             }
-            return await Task.FromResult<IActionResult>(new JsonResult(apiHttpResponse));
+            return await Task.FromResult<IActionResult>(new JsonResult(httpResponse));
         }
         
     }
