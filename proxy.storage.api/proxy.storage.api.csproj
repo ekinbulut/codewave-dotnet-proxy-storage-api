@@ -13,4 +13,8 @@
       <ProjectReference Include="..\proxy.storage.api.service\proxy.storage.api.service.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Helpers" />
+    </ItemGroup>
+
 </Project>
