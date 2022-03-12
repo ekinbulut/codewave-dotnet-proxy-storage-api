@@ -16,7 +16,7 @@ public class RequestLoggingMiddleware
         _logger = loggerFactory.CreateLogger<RequestLoggingMiddleware>();
     }
 
-    public async Task Invoke(HttpContext context)
+    public async Task InvokeAsync(HttpContext context)
     {
         try
         {
