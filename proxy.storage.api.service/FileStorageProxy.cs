@@ -4,17 +4,17 @@ namespace proxy.storage.api.service;
 
 public interface IFileStorageProxy
 {
-    Task<UploadFileServiceResponse> UploadFile(string fileName, MemoryStream stream);
+    Task<FileServiceResponse> UploadFile(string fileName, MemoryStream stream);
 }
 
 public class FileStorageProxy : IFileStorageProxy
 {
-    public async Task<UploadFileServiceResponse> UploadFile(string fileName, MemoryStream stream)
+    public async Task<FileServiceResponse> UploadFile(string fileName, MemoryStream stream)
     {
         var localStorageFactory = new LocalStorageService();
         var fileService = localStorageFactory.GetFileService();
 
-        var response = await fileService.SaveMemoryStreamIntoFile(new UploadFileServiceRequest()
+        var response = await fileService.SaveMemoryStreamToFile(new FileServiceRequest()
         {
             FileName = fileName,
             MemoryStream = stream

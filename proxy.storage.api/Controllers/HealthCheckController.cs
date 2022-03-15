@@ -1,6 +1,4 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace proxy.storage.api.Controllers
 {

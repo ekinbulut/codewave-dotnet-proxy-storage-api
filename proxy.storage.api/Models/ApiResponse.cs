@@ -1,6 +1,6 @@
-namespace proxy.storage.api.service;
+namespace proxy.storage.api.Models;
 
-public class ApiHttpResponse
+public class ApiResponse
 {
     public object Message { get; set; }
     public string Error { get; set; }

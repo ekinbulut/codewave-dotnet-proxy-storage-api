@@ -2,26 +2,26 @@ namespace proxy.storage.local.service;
 
 public class FileService
 {
-    public async Task<UploadFileServiceResponse> SaveMemoryStreamIntoFile(UploadFileServiceRequest uploadFileRequest)
+    public async Task<FileServiceResponse> SaveMemoryStreamToFile(FileServiceRequest fileServiceRequest)
     {
-        var uploadFileResponse = new UploadFileServiceResponse();
+        var uploadFileResponse = new FileServiceResponse();
         var tempPath = Path.GetTempPath();
-        var fileName = uploadFileRequest.FileName;
+        var fileName = fileServiceRequest.FileName;
         var fileLocation = Path.Combine(tempPath, fileName);
 
-        await File.WriteAllBytesAsync(fileLocation, uploadFileRequest.MemoryStream.ToArray());
+        await File.WriteAllBytesAsync(fileLocation, fileServiceRequest.MemoryStream.ToArray());
         uploadFileResponse.FileLocation = fileLocation;
         return await Task.FromResult(uploadFileResponse);
     }
 
 }
 
-public class UploadFileServiceResponse
+public class FileServiceResponse
 {
     public string FileLocation { get; set; }
 }
 
-public class UploadFileServiceRequest
+public class FileServiceRequest
 {
     public string FileName { get; init; }
     public MemoryStream MemoryStream { get; init; }

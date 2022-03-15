@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using proxy.storage.api.Models;
 using proxy.storage.api.service;
 
 namespace proxy.storage.api.Controllers
@@ -22,17 +23,17 @@ namespace proxy.storage.api.Controllers
         }
 
         [HttpPost("/file/upload")]
-        [ProducesResponseType(typeof(ApiHttpResponse), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ApiResponse), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Upload([FromHeader] string documentType, [FromForm] IFormFile file)
         {
-            var httpResponse = new ApiHttpResponse();
+            var apiResponse = new ApiResponse();
             await using (var memoryStream = new MemoryStream())
             {
                await file.CopyToAsync(memoryStream);
                var proxyResponse = await _fileStorageProxy.UploadFile(file.FileName, memoryStream);
-               httpResponse.Message = proxyResponse;
+               apiResponse.Message = proxyResponse;
             }
-            return await Task.FromResult<IActionResult>(new JsonResult(httpResponse));
+            return await Task.FromResult<IActionResult>(new JsonResult(apiResponse));
         }
         
     }

@@ -3,7 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using proxy.storage.api.service;
+using proxy.storage.api.Models;
 
 namespace proxy.storage.api.Middlewares;
 
@@ -34,10 +34,12 @@ public class ExceptionMiddleware
     {
         context.Response.ContentType = "application/json";
         context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-        await context.Response.WriteAsync(new ApiHttpResponse()
+        await context.Response.WriteAsync(new ApiResponse()
         {
             StatusCode = context.Response.StatusCode,
-            Message = "Internal Server Error from the middleware."
+            Message = "Internal Server Error from the middleware.",
+            Error = exception.InnerException?.Message
+            
         }.ToString() ?? string.Empty);
     }
 }
