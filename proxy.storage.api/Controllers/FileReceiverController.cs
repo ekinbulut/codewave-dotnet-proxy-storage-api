@@ -14,12 +14,10 @@ namespace proxy.storage.api.Controllers
     public class FileReceiverController
     {
         private readonly IFileStorageProxy _fileStorageProxy;
-        private ILogger<FileReceiverController> _logger;
 
-        public FileReceiverController(IFileStorageProxy fileStorageProxy, ILogger<FileReceiverController> logger)
+        public FileReceiverController(IFileStorageProxy fileStorageProxy)
         {
             _fileStorageProxy = fileStorageProxy;
-            _logger = logger;
         }
 
         [HttpPost("/file/upload")]
